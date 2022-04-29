@@ -39,16 +39,9 @@ Then set the relevant permissions on the application on the API Permissions page
 - User.Read
 - User.ReadBasic.All
 
-Add the client id and secret to your `configuration.yaml`:
+Add the client id and secret in the configuration flow through **Configuration -> Integrations -> Microsoft Graph**:
 
-```yaml
-# Example configuration.yaml entry
-microsoft_graph:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
-```
-
-Finish setup in the UI through **Configuration -> Integrations -> Microsoft Graph**.
+And Finish setup in the UI through.
 
 ### Sensor
 
