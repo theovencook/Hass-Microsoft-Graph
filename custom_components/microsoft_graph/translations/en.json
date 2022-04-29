@@ -17,10 +17,8 @@
                     "client_id": "Client ID",
                     "client_secret": "Client Secret"
                 },
-                "description": "Do you want to start set up?",
-                "title": "Microsoft Graph"
+                "description": "Do you want to start set up?"
             }
         }
-    },
-    "title": "Microsoft Graph"
+    }
 }
