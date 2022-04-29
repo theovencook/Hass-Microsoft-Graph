@@ -8,7 +8,7 @@
     "ha-graphapi==0.0.20"
   ],
   "dependencies": [
-    "http"
+    "http", "auth"
   ],
   "codeowners": [
     "@jlweston", "@geoffreylagaisse"
