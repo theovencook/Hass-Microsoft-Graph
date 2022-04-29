@@ -13,13 +13,13 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers import (
     aiohttp_client,
     config_entry_oauth2_flow,
-    config_validation as cv,
 )
+from homeassistant.const import CONF_CLIENT_ID, CONF_CLIENT_SECRET
 from homeassistant.helpers.typing import HomeAssistantType
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
-from . import api
-from .const import DOMAIN
+from . import api, config_flow
+from .const import DOMAIN, OAUTH2_AUTHORIZE, OAUTH2_TOKEN
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -29,11 +29,23 @@ PLATFORMS = ["sensor"]
 async def async_setup(hass: HomeAssistant, config: dict):
     """Set up the Microsoft Graph component."""
     hass.data.setdefault(DOMAIN, {})
+
     return True
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     """Set up Microsoft Graph from a config entry."""
+    config_flow.OAuth2FlowHandler.async_register_implementation(
+        hass,
+        config_entry_oauth2_flow.LocalOAuth2Implementation(
+            hass,
+            DOMAIN,
+            entry.data[CONF_CLIENT_ID],
+            entry.data[CONF_CLIENT_SECRET],
+            OAUTH2_AUTHORIZE,
+            OAUTH2_TOKEN,
+        ),
+    )
     implementation = (
         await config_entry_oauth2_flow.async_get_config_entry_implementation(
             hass, entry
