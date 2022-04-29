@@ -13,5 +13,6 @@
   ],
   "codeowners": [
     "@jlweston", "@geoffreylagaisse"
-  ]
+  ],
+  "iot_class": "cloud_polling"
 }

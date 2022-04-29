@@ -1,5 +1,4 @@
 {
-  "title": "Microsoft Graph",
   "config": {
     "step": {
       "pick_implementation": {
@@ -11,15 +10,14 @@
           "client_id": "[%key:common::config_flow::step::user::data::client_id%]",
           "client_secret": "[%key:common::config_flow::step::user::data::client_secret%]"
         }
-    },
-    "abort": {
-      "missing_configuration": "[%key:common::config_flow::abort::oauth2_missing_configuration%]",
-      "authorize_url_timeout": "[%key:common::config_flow::abort::oauth2_authorize_url_timeout%]",
-      "no_url_available": "[%key:common::config_flow::abort::oauth2_no_url_available%]"
-    },
-    "create_entry": {
-      "default": "[%key:common::config_flow::create_entry::authenticated%]"
+      },
+      "abort": {
+        "missing_configuration": "[%key:common::config_flow::abort::oauth2_missing_configuration%]",
+        "no_url_available": "[%key:common::config_flow::abort::oauth2_no_url_available%]"
+      },
+      "create_entry": {
+        "default": "[%key:common::config_flow::create_entry::authenticated%]"
+      }
     }
   }
-}
 }
