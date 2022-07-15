@@ -35,7 +35,8 @@ You will need to register an application in Azure AD and retrieve the client ID 
 - Register a new application in [Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
   - Name your app
   - Select "Accounts in any organizational directory (Any Azure AD directory - Multitenant)" under supported account types
-  - For Redirect URI, add: `https://<EXTERNAL_HOME_ASSISTANT_URL>/auth/external/callback`
+  - For home-assistant versions before 2022.07: For Redirect URI, add: `https://<EXTERNAL_HOME_ASSISTANT_URL>/auth/external/callback`
+  - For home-assistant versions from 2022.07 and following: For Redirect URI, add: `https://my.home-assistant.io/redirect/oauth`
 - Copy your Application (client) ID for later use
 - On the App Page, navigate to "Certificates & secrets"
   - Generate a new client secret and *save for later use* (you will *not* be able to see this again)
@@ -43,9 +44,7 @@ You will need to register an application in Azure AD and retrieve the client ID 
 Then set the relevant permissions on the application on the API Permissions page. All of the following are required to function correctly:
 
 - Presence.Read
-- Presence.Read.All
 - User.Read
-- User.ReadBasic.All
 
 Add the client id and secret in the configuration flow through **Configuration -> Integrations -> Microsoft Graph**:
 
