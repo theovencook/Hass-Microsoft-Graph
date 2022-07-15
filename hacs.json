@@ -1,6 +1,5 @@
 {
   "name": "Microsoft Graph",
   "country": "GB",
-  "render_readme": false,
-  "domains": ["sensor"]
+  "render_readme": true,
 }
